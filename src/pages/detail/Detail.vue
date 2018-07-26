@@ -1,4 +1,5 @@
 <template>
+  <!-- <web-view :src="viewSrc"></web-view> -->
   <div class="container">
     <div class="top">
       <img mode="aspectFill" class="cover" :src="movieDetail.cover" >
@@ -37,7 +38,6 @@
       <div class="summary">
         {{movieDetail.summary}}
       </div>
-      <!-- <h2 class="margintitle">影人</h2> -->
     </div>
   </div>
 </template>
@@ -48,12 +48,15 @@ import Rate from "@/components/Rate";
 export default {
   data() {
     return {
-      movieDetail: {}
+      movieDetail: {},
+      viewSrc: ''
     };
   },
   onShow() {
     console.log(this.$root.$mp.query.id);
+    // this.viewSrc = 'http://www.baidu.com/?word=' + this.$root.$mp.query.id
     this._getDetailById();
+    
   },
   methods: {
     _getDetailById() {
